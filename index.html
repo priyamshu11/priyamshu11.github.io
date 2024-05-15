@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         header {
             background-color: #333;
@@ -28,20 +29,67 @@
             text-decoration: none;
             padding: 10px 20px;
             transition: all 0.3s ease;
+            position: relative;
         }
         nav a:hover {
             background-color: #555;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            background: #fff;
+            transition: width 0.3s;
+            bottom: 0;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
         }
         .container {
             max-width: 800px;
             margin: auto;
             padding: 0 20px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
             text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         p {
             margin-bottom: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .avatar {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid #555;
+            animation: rotate 2s infinite linear;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         footer {
             background-color: #333;
@@ -70,23 +118,27 @@
 
         <section id="about">
             <h2>About Me</h2>
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
             <p>Welcome to my creative space! I'm Priyamshu MK, and I thrive on crafting digital experiences that leave a lasting impression. With a blend of creativity and technical expertise, I bring ideas to life in the digital realm.</p>
         </section>
 
         <section id="portfolio">
             <h2>Portfolio</h2>
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
             <p>Check out some of my latest projects:</p>
             <!-- Add your portfolio items here -->
         </section>
 
         <section id="blog">
             <h2>Blog</h2>
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
             <p>Explore my thoughts and insights:</p>
             <!-- Add your blog posts here -->
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
             <p>Feel free to reach out to me:</p>
             <!-- Add your contact information here -->
         </section>
